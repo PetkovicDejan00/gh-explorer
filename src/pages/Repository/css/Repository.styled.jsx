@@ -19,6 +19,9 @@ export const RepositoryContainer = styled.div`
     @media(max-width: 1080px) {
         flex-direction: column;
     }
+    @media(max-width: 300px) {
+        padding: 0.5rem;
+    }
 `
 
 export const Avatar = styled.img`

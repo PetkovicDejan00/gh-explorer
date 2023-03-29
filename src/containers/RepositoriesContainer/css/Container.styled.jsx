@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ReposContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 2rem;
+    padding: 2rem 1rem;
     gap: 1rem;
 
     @media(max-width: 1000px) {
@@ -30,6 +30,12 @@ export const RepoCard = styled.article`
         margin: 0 auto;
         text-align: center;
     }
+    @media (max-width: 360px) {
+        width: 250px;
+        box-sizing: border-box;
+    }
+
+    
 `
 
 export const CardHeader = styled.div`
