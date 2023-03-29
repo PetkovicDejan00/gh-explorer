@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ReposContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    padding: 2rem 1rem;
+    padding: 2rem 0.4rem;
     gap: 1rem;
 
     @media(max-width: 1000px) {
@@ -26,15 +26,17 @@ export const RepoCard = styled.article`
     }
 
     @media (max-width: 750px) {
-        width: 80%;
+        width: 90%;
         margin: 0 auto;
         text-align: center;
     }
     @media (max-width: 360px) {
-        width: 250px;
+        width: 290px;
         box-sizing: border-box;
     }
-
+    @media(max-width: 300px) {
+        width: 265px;
+    }
     
 `
 
@@ -44,6 +46,7 @@ export const CardHeader = styled.div`
     align-items: center;
     padding: 0.5rem;
     border-radius: 5px;
+    flex-wrap: wrap;
 
     img {
         margin-right: 1rem;
@@ -59,6 +62,7 @@ export const CardHeader = styled.div`
         text-decoration: underline;
         transition: 0.25s ease;
         cursor: pointer;
+        width: 140px;
 
         :hover {
             color: darkgreen;

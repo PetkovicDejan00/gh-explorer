@@ -16,7 +16,7 @@ const RepositoriesContainer = ({repositories, isFetching}) => {
 return (
     <ReposContainer>
         {repositories.map((repository) => {
-            const {id, forks, stargazers_count: stars, full_name} = repository
+            const {id, forks, stargazers_count: stars, full_name, name} = repository
             const {avatar_url, login: ownerName} = repository.owner
             return (
                 <RepoCard key={id}>
@@ -24,7 +24,7 @@ return (
                     <>
                     <CardHeader>
                         <img src={avatar_url} />
-                        <Link to={`/repository/${full_name}`}>{full_name}</Link>
+                        <Link to={`/repository/${full_name}`}>{name}</Link>
                     </CardHeader>
                     <RepoName>{ownerName}</RepoName>
                     <RepoStats>
