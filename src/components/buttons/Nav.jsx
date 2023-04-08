@@ -10,9 +10,8 @@ const Nav = () => {
     const handleWindowResize = () => {
       setWidth(window.innerWidth)
     }
-    
+
     window.addEventListener('resize', handleWindowResize)
-    console.log(width)
   }, [width])
 
   return (

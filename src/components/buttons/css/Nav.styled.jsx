@@ -4,12 +4,11 @@ const ButtonsContainer = styled.div`
     display: flex;
     flex-direction: row;
     margin: 0 auto;
-    max-width: 350px;
+    max-width: 450px;
     background: white;
     justify-content: space-evenly;
     padding-top: 2rem;
     padding-inline: 0.5rem;
-    flex-wrap: wrap;
 
     a {
         display: flex;
