@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import {NavLink} from 'react-router-dom'
 import {ReactIcon, AngularIcon, VueIcon} from './imports'
 import {ButtonsContainer, BtnIcon, BtnText} from './css/Nav.styled'

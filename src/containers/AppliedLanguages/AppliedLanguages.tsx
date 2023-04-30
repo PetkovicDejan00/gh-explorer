@@ -3,16 +3,19 @@ import {useAppliedLanguages} from '../../hooks/useAppliedLanguages'
 import LoadingCircle from '../../components/LoadingCircle/LoadingCircle'
 import {LanguagesContainer} from './css/Languages.styled'
 
+interface Prop {
+    repository: string
+}
 
-const AppliedLanguages = ({repository}) => {
-    const {isLoading, isError, error, data} = useAppliedLanguages(`${repository}`)
-    
+const AppliedLanguages = ({repository}:Prop) => {
+    const {isLoading, error, data} = useAppliedLanguages(`${repository}`)
+
     if (isLoading) {
         return <LoadingCircle />
     }
-    if (isError) {
-        return <h4>{error.message}</h4>
-    }
+    if (error instanceof Error) {
+        return <h2>{error.message}</h2>
+      } 
     const appliedLanguages = Object.entries(data?.data)
 
     return (
@@ -20,17 +23,17 @@ const AppliedLanguages = ({repository}) => {
             <h2>Applied Languages</h2>
             {appliedLanguages.length !== 0 ? 
                 <div>
-                    {appliedLanguages.map((key, value) => {
+                    {appliedLanguages.map((key:any, value) => {
                         return (
-                            <p key={value}>{key[0]}: {key[1]}</p>
+                            <p key={value}>
+                                {key[0]}: {key[1]}
+                            </p>
                         )
                     })}
                 </div>
             : 
-                <p empty={true}>No applied languages to show</p>
+                <p>No applied languages to show</p>
             }
-
-            {/* {appliedLanguages.length === 0 && <p empty={true}>No applied languages to show</p>} */}
         </LanguagesContainer>
     )
 }

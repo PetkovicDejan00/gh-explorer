@@ -7,17 +7,22 @@ import LoadingCircle from '../../components/LoadingCircle/LoadingCircle'
 import {RepositoryContainer, Avatar, RepoStats} from './css/Repository.styled'
 import ForkIcon from '../../assets/gh-fork-icon.png'
 import StarIcon from '../../assets/gh-star-icon.png'
+import { ErrorMessage } from '../Framework/css/Framework.styled'
+import { IRepository } from '../../common/types'
 
 const Repository = () => {
   const { '*': repository } = useParams()
-  
-  const {isLoading, isError, error, data: repoData} = useSingleRepo(repository)
-  
+
+  const {isLoading, error, data} = useSingleRepo(repository)
+  const repoData = data?.data
   if (isLoading) return <LoadingCircle />
-  if (isError) return <h2>{error.message}</h2>
+
+  if (error instanceof Error) {
+    return <ErrorMessage>{error.message}</ErrorMessage>
+  } 
   
-  const {stargazers_count: stars, forks, open_issues} = repoData.data
-  const {login: owner_name, avatar_url} = repoData.data.owner
+  const {stargazers_count: stars, forks, open_issues, owner}:IRepository = repoData
+  const {login: owner_name, avatar_url} = owner
   return (
     <RepositoryContainer>
       <div>

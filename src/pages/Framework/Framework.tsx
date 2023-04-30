@@ -1,6 +1,6 @@
 import {useQuery} from 'react-query'
 import {useState, useEffect} from 'react';
-import {getRepositoriesPaginated} from '../../api/RepositoriesPaginated'
+import { useRepositoriesPaginated } from '../../hooks/useRepositoriesPaginated';
 import Sort from '../../components/SortComponent/Sort'
 import Pagination from '../../components/Pagination/Pagination'
 import { useParams, useSearchParams } from 'react-router-dom'
@@ -16,9 +16,9 @@ const Framework = () => {
   const sort = searchParams.get('sort')
   const order = searchParams.get('order')
 
-  const {isLoading, isError, error, data, refetch, isFetching} = useQuery({
+  const {isLoading, error, data, refetch, isFetching} = useQuery({
     queryKey: [`${framework}-repos`, { page }],
-    queryFn: () => getRepositoriesPaginated(page, framework, sort, order)
+    queryFn: () => useRepositoriesPaginated(page, framework, sort, order)
   })
   let repositories = data?.repositories?.items
 
@@ -31,13 +31,13 @@ const Framework = () => {
   }, [sorting])
 
   useEffect(() => {
-    setSorting('0')
+    setSorting(0)
+    refetch()
   }, [framework])
 
-
-  if (isError) return (
-    <ErrorMessage>{error.message}</ErrorMessage>
-  )
+  if (error instanceof Error) {
+    return <ErrorMessage>{error.message}</ErrorMessage>
+  } 
   
   return (
     <>

@@ -1,6 +1,7 @@
 import axios from 'axios'
+import { IRepository } from '../common/types'
 
-export const getRepositoriesPaginated = (page, framework, sort, order) => {
+export const useRepositoriesPaginated = (page:number, framework:string, sort:string | null, order:string | null) => {
     return axios.get("https://api.github.com/search/repositories?", {
         params: {
             q: framework, 

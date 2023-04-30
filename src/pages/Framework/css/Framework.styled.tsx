@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ErrorMessage = styled.h1`
+export const ErrorMessage = styled.h2`
     position: fixed;
     font-family: Monospace;
     font-size: 36px;

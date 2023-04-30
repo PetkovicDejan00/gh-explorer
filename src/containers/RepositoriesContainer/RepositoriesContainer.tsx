@@ -10,14 +10,20 @@ import ForkIcon from '../../assets/gh-fork-icon.png'
 import StarIcon from '../../assets/gh-star-icon.png'
 import LoadingCircle from '../../components/LoadingCircle/LoadingCircle'
 import {Link} from 'react-router-dom'
+import { IRepository } from '../../common/types'
 
-const RepositoriesContainer = ({repositories, isFetching}) => {
+interface Props {
+    repositories: IRepository[],
+    isFetching: boolean
+}
+
+const RepositoriesContainer = ({repositories, isFetching}:Props) => {
 
 return (
     <ReposContainer>
         {repositories.map((repository) => {
-            const {id, forks, stargazers_count: stars, full_name, name} = repository
-            const {avatar_url, login: ownerName} = repository.owner
+            const {id, forks, stargazers_count: stars, full_name, name, owner}:IRepository = repository
+            const {avatar_url, login: ownerName} = owner
             return (
                 <RepoCard key={id}>
                     {isFetching ? <LoadingCircle /> : 

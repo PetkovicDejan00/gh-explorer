@@ -20,6 +20,8 @@ export const RepoCard = styled.article`
     border-radius: 5px;
     padding: 1rem;
     transition: 0.25s ease;
+    position: relative;
+    min-height: 170px;
 
     :hover {
         box-shadow: 0px 0px 10px rgba(128, 128, 128);

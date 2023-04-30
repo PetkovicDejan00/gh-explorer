@@ -2,10 +2,13 @@ import styled from 'styled-components'
 
 export const Circle = styled.div`
     display: block;
-    position: relative;
     margin: 0 auto;
     width: 80px;
     height: 80px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 
     div {
         position: absolute;

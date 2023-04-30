@@ -7,6 +7,7 @@ export const ContributorsContainer = styled.div`
     justify-content: center;
     width: 600px;
     margin-top: 20px;
+    position: relative;
 
     @media(max-width: 1080px) {
         width: 100%;
