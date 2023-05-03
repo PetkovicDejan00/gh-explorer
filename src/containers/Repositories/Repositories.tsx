@@ -1,10 +1,6 @@
-import React from 'react'
 import {
-    ReposContainer, 
-    RepoCard, 
-    CardHeader, 
-    RepoStats, 
-    RepoName
+    ReposContainer, RepoCard, 
+    CardHeader, RepoStats, OwnerName
 } from './css/Container.styled'
 import ForkIcon from '../../assets/gh-fork-icon.png'
 import StarIcon from '../../assets/gh-star-icon.png'
@@ -22,27 +18,27 @@ const RepositoriesContainer = ({repositories, isFetching}:Props) => {
 return (
     <ReposContainer>
         {repositories.map((repository) => {
-            const {id, forks, stargazers_count: stars, full_name, name, owner}:IRepository = repository
+            const {id, forks, stargazers_count: stars, full_name, name, owner} = repository
             const {avatar_url, login: ownerName} = owner
             return (
                 <RepoCard key={id}>
                     {isFetching ? <LoadingCircle /> : 
                     <>
-                    <CardHeader>
-                        <img src={avatar_url} />
-                        <Link to={`/repository/${full_name}`}>{name}</Link>
-                    </CardHeader>
-                    <RepoName>{ownerName}</RepoName>
-                    <RepoStats>
-                        <span>
-                            <img src={StarIcon} alt="Star icon" />
-                            <p>{stars}</p>
-                        </span>
-                        <span>
-                            <img src={ForkIcon} alt="Fork icon" />
-                            <p>{forks}</p>
-                        </span>
-                    </RepoStats>
+                        <CardHeader>
+                            <img src={avatar_url} />
+                            <Link to={`/repository/${full_name}`}>{name}</Link>
+                        </CardHeader>
+                        <OwnerName>{ownerName}</OwnerName>
+                        <RepoStats>
+                            <span>
+                                <img src={StarIcon} alt="Star icon" />
+                                <p>{stars}</p>
+                            </span>
+                            <span>
+                                <img src={ForkIcon} alt="Fork icon" />
+                                <p>{forks}</p>
+                            </span>
+                        </RepoStats>
                     </>
                     }
                 </RepoCard>

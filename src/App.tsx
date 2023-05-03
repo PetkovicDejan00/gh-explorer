@@ -1,5 +1,5 @@
 import {Routes, Route, Navigate} from 'react-router-dom'
-import Nav from './components/buttons/Nav'
+import Nav from './components/Nav/Nav'
 import Framework from './pages/Framework/Framework'
 import Repository from './pages/Repository/Repository'
 import {QueryClient, QueryClientProvider} from 'react-query'

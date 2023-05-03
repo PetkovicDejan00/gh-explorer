@@ -1,12 +1,12 @@
 import {useQuery} from 'react-query'
 import {useState, useEffect} from 'react';
 import { useRepositoriesPaginated } from '../../hooks/useRepositoriesPaginated';
-import Sort from '../../components/SortComponent/Sort'
+import Sort from '../../components/Sort/Sort'
 import Pagination from '../../components/Pagination/Pagination'
 import { useParams, useSearchParams } from 'react-router-dom'
 import LoadingCircle from '../../components/LoadingCircle/LoadingCircle'
-import RepositoriesContainer from '../../containers/RepositoriesContainer/RepositoriesContainer';
-import {ErrorMessage} from './css/Framework.styled'
+import Repositories from '../../containers/Repositories/Repositories';
+import { ErrorMsg } from '../../globalCSS/globalStyle';
 
 const Framework = () => {
   const [page, setPage] = useState(1)
@@ -36,14 +36,14 @@ const Framework = () => {
   }, [framework])
 
   if (error instanceof Error) {
-    return <ErrorMessage>{error.message}</ErrorMessage>
+    return <ErrorMsg>{error.message}</ErrorMsg>
   } 
   
   return (
     <>
         <Pagination {...paginationProps}/>
         <Sort {...sortingProps}/>
-        {isLoading ? <LoadingCircle /> : <RepositoriesContainer {...reposContainerProps} />}
+        {isLoading ? <LoadingCircle /> : <Repositories {...reposContainerProps} />}
     </>
   )
 }

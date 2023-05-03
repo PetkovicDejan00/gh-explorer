@@ -27,7 +27,6 @@ export const RepositoryContainer = styled.div`
 export const Avatar = styled.img`
     border-radius: 10px;
     width: 250px;
-
 `
 
 export const RepoStats = styled.div`

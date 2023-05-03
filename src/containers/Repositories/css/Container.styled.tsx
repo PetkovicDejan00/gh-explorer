@@ -71,7 +71,7 @@ export const CardHeader = styled.div`
         }
     }
 `
-export const RepoName = styled.p`
+export const OwnerName = styled.p`
     text-align: start;
     padding: 0.5rem 1rem;
     margin-block: 1rem;

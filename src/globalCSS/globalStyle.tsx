@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 `
 
-export const Error = styled.h2`
+export const ErrorMsg = styled.h2`
     position: absolute;
     left: 50%;
     top: 50%;

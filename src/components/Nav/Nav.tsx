@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import {NavLink} from 'react-router-dom'
 import {ReactIcon, AngularIcon, VueIcon} from './imports'
-import {ButtonsContainer, BtnIcon, BtnText} from './css/Nav.styled'
+import {NavContainer, BtnIcon, BtnText} from './css/Nav.styled'
 
 const Nav = () => {
   const [width, setWidth] = useState(window.innerWidth)
@@ -15,7 +15,7 @@ const Nav = () => {
   }, [width])
 
   return (
-    <ButtonsContainer>
+    <NavContainer>
         <NavLink to="/react">
             <BtnIcon src={ReactIcon} alt="React Icon" />
             {width > 400 && <BtnText>React</BtnText>}
@@ -28,7 +28,7 @@ const Nav = () => {
             <BtnIcon src={VueIcon} alt="Vue Icon" />
             {width > 400 && <BtnText>Vue</BtnText>}
         </NavLink>
-    </ButtonsContainer>
+    </NavContainer>
   )
 }
 

@@ -2,6 +2,7 @@ import {useContributors} from '../../hooks/useContributors'
 import LoadingCircle from '../../components/LoadingCircle/LoadingCircle'
 import { ContributorsContainer, Card } from './css/Contributors.styled'
 import { IContributor } from '../../common/types'
+import { ErrorMsg } from '../../globalCSS/globalStyle'
 
 interface Prop {
     repository: string
@@ -15,7 +16,7 @@ const Contributors = ({repository}:Prop) => {
         return <LoadingCircle />
     }
     if (error instanceof Error) {
-        return <h2>{error.message}</h2>
+        return <ErrorMsg>{error.message}</ErrorMsg>
       } 
     
     return (

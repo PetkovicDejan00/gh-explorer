@@ -13,6 +13,7 @@ const options: any = {
 const Sort = ({sorting, setSorting, searchParams, setSearchParams}: ISotring) => {
 
     const getAllSearchParams = Object.fromEntries([...searchParams])
+    
     const handleOptions = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSorting(Number(e.target.value))
         setSearchParams({

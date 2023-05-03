@@ -5,7 +5,7 @@ export const PaginationButton = styled.button`
     border: none;
     color: black;
     width: 80px;
-    cursor: pointer;
+    cursor: ${props => props.disabled ? 'not-allowed' : 'pointer'};
     transition: 0.25s ease;
     border: 2px solid #778da9;
     border-radius: 4px;

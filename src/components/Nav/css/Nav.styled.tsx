@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const ButtonsContainer = styled.div`
+const NavContainer = styled.div`
     display: flex;
     flex-direction: row;
     margin: 0 auto;
@@ -40,4 +40,4 @@ const BtnText = styled.p`
     color: black;
 `
 
-export {ButtonsContainer, BtnIcon, BtnText}
+export {NavContainer, BtnIcon, BtnText}

@@ -1,4 +1,3 @@
-import React from 'react'
 import Contributors from '../../containers/Contributors/Contributors'
 import AppliedLanguages from '../../containers/AppliedLanguages/AppliedLanguages'
 import { useParams } from 'react-router-dom'
@@ -7,7 +6,7 @@ import LoadingCircle from '../../components/LoadingCircle/LoadingCircle'
 import {RepositoryContainer, Avatar, RepoStats} from './css/Repository.styled'
 import ForkIcon from '../../assets/gh-fork-icon.png'
 import StarIcon from '../../assets/gh-star-icon.png'
-import { ErrorMessage } from '../Framework/css/Framework.styled'
+import { ErrorMsg } from '../../globalCSS/globalStyle'
 import { IRepository } from '../../common/types'
 
 const Repository = () => {
@@ -15,10 +14,12 @@ const Repository = () => {
 
   const {isLoading, error, data} = useSingleRepo(repository)
   const repoData = data?.data
-  if (isLoading) return <LoadingCircle />
-
+  
+  if (isLoading) {
+    return <LoadingCircle />
+  }
   if (error instanceof Error) {
-    return <ErrorMessage>{error.message}</ErrorMessage>
+    return <ErrorMsg>{error.message}</ErrorMsg>
   } 
   
   const {stargazers_count: stars, forks, open_issues, owner}:IRepository = repoData
@@ -27,14 +28,14 @@ const Repository = () => {
     <RepositoryContainer>
       <div>
         <h2>{owner_name}</h2>
-        <Avatar src={avatar_url} />
+        <Avatar src={avatar_url} alt="Owner's image"/>
         <RepoStats>
           <span>
-            <img src={StarIcon} alt="Star icon" />
+            <img src={StarIcon} alt="Stars" />
             <p>{stars}</p>
           </span>
           <span>
-            <img src={ForkIcon} alt="Fork icon" />
+            <img src={ForkIcon} alt="Forks" />
             <p>{forks}</p>
           </span>
         </RepoStats>
