@@ -1,4 +1,4 @@
-import {Circle} from './css/Circle.styled'
+import { Circle } from "./css/Circle.styled";
 
 const LoadingCircle = () => {
   return (
@@ -6,7 +6,7 @@ const LoadingCircle = () => {
       <div></div>
       <div></div>
     </Circle>
-  )
-}
+  );
+};
 
-export default LoadingCircle
+export default LoadingCircle;

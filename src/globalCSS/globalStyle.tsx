@@ -17,11 +17,11 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0 auto;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
-`
+`;
 
 export const ErrorMsg = styled.h2`
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+`;
